@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Office;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,6 +17,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/register', function () {
+    $datas = Office::all();
+    return view('auth.register', compact('datas'));
+});
+
+
 
 Route::middleware([
     'auth:sanctum',
