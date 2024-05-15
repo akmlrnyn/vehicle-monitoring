@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\PermissionController;
 use App\Models\Office;
 use Illuminate\Support\Facades\Route;
 
@@ -24,13 +26,16 @@ Route::get('/register', function () {
 });
 
 
+// Permission
+Route::get('/permission/create', [PermissionController::class, 'create'])->name('permission.create');
+Route::get('/permission', [PermissionController::class, 'index'])->name('permission.index');
+Route::post('/permission', [PermissionController::class, 'store'])->name('permission.store');
+
 
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
     'verified',
 ])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 });
