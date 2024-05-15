@@ -6,7 +6,8 @@
         <div class="my-5 w-full bg-white border border-gray-200 rounded-lg shadow-lg p-8 border-gray-100">
             <div class="flex flex-col sm:flex-row items-center justify-between pb-4 border-b-2">
                 <h5 class="text-lg sm:text-xl font-bold leading-none text-gray-900 ">Offices</h5>
-                <a href="{{ route('office.create') }}" class="text-md sm:text-lg font-bold leading-none text-blue-500 "> + Add New Office</a>
+                <a href="{{ route('office.create') }}" class="text-md sm:text-lg font-bold leading-none text-blue-500 ">
+                    + Add New Office</a>
             </div>
 
             <div class="flow-root">
@@ -31,10 +32,17 @@
                                 class="flex flex-col sm:flex-row mt-2 sm:mt-0 gap-2 items-center text-xs sm:text-base font-semibold text-gray-900 ">
                                 <div>{{$data->vehicle_owned}} vehicle exists </div>
                                 <div>
-                                    <a href="">
+                                    <a href="{{ route('office.show', $data->id) }}">
                                         <button type="button"
                                             class="text-white bg-blue-600 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 sm:font-medium shadow-lg rounded-md sm:rounded-lg text-xs px-3 sm:px-5 py-2 sm:py-2.5 sm:me-2 dark:bg-blue-500 dark:hover:bg-blue-600 focus:outline-none dark:focus:ring-blue-800">
                                             See Detail
+                                        </button>
+                                    </a>
+
+                                    <a href="{{ route('office.edit', $data->id) }}">
+                                        <button type="button"
+                                            class="text-white bg-yellow-600 hover:bg-yellow-800 focus:ring-4 focus:ring-yellow-300 sm:font-medium shadow-lg rounded-md sm:rounded-lg text-xs px-3 sm:px-5 py-2 sm:py-2.5 sm:me-2 dark:bg-yellow-500 dark:hover:bg-yellow-600 focus:outline-none dark:focus:ring-yellow-800">
+                                            Update office
                                         </button>
                                     </a>
                                 </div>
