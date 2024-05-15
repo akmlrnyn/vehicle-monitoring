@@ -16,4 +16,9 @@ class Permission extends Model
     {
         return $this->belongsTo(User::class, 'user_id', 'id');
     }
+
+    public function vehicle(): BelongsTo
+    {
+        return $this->belongsTo(Vehicle::class, 'vehicle_id', 'id');
+    }
 }

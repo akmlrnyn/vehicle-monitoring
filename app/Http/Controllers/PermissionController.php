@@ -14,6 +14,11 @@ class PermissionController extends Controller
         return view('pages.permission.index', compact('datas'));
     }
 
+    public function show($id) {
+        $data = Permission::find($id);
+        return view('pages.permission.show-permission', compact('data'));
+    }
+
     public function create() {
         $datas = Permission::all();
         $vehicles = Vehicle::where('is_taken', 'false')->get();
@@ -29,8 +34,26 @@ class PermissionController extends Controller
         return redirect()->route('permission.index');
     }
 
-    // public function approve() {
-    //     $permission = Permission::all();
-    //     $permission['status'] = 'approved'
-    // }
+    public function approve($id) {
+        $carPermission = Permission::find($id);
+        $carPermission->update([
+            'status' => 'approved'
+        ]);
+
+        $vehicleIsTaken = Vehicle::find($id);
+        $vehicleIsTaken->update([
+            'is_taken' => 'true'
+        ]);
+
+        return redirect('/permission');
+    }
+
+    public function reject($id) {
+        $carPermission = Permission::find($id);
+        $carPermission->update([
+            'status' => 'rejected'
+        ]);
+
+        return redirect('/permission');
+    }
 }
