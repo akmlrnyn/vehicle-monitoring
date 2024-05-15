@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Permission;
+use App\Models\User;
 use App\Models\Vehicle;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -21,10 +22,11 @@ class PermissionController extends Controller
 
     public function create() {
         $datas = Permission::all();
+        $users = User::all();
         $vehicles = Vehicle::where('is_taken', 'false')->get();
         $currentMonth = Carbon::now()->format('F');
 
-        return view('pages.permission.create-permission', compact('datas', 'vehicles', 'currentMonth'));
+        return view('pages.permission.create-permission', compact('datas', 'vehicles', 'currentMonth', 'users'));
     }
 
     public function store(Request $request) {

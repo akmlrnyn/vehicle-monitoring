@@ -67,8 +67,13 @@
                                         Reject
                                     </button>
                                     {{-- detail employee --}}
-                                    <a href="{{ route('permission.approve', $data->id) }}" type="button"
-                                        class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 sm:font-medium rounded sm:rounded-lg text-xs px-3 sm:px-5 py-1 sm:py-2.5 sm:me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Approve</a>
+                                    <form action="{{ route('permission.approve', $data->id) }}" method="post">
+                                        @csrf
+                                        @method('PATCH')
+                                        <button  type="submit"
+                                            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 sm:font-medium rounded sm:rounded-lg text-xs px-3 sm:px-5 py-1 sm:py-2.5 sm:me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Approve</button>
+                                    </form>
+
                                     <a href="{{ route('permission.show', $data->id) }}" type="button"
                                         class="text-white bg-gray-700 hover:bg-gray-800 focus:ring-4 focus:ring-gray-300 sm:font-medium rounded sm:rounded-lg text-xs px-3 sm:px-5 py-1 sm:py-2.5 mb-2 dark:bg-gray-600 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800">Detail</a>
                                 </div>
