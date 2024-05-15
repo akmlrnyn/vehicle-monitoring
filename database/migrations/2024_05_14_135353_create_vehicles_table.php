@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string("name");
             $table->integer('gas_consumption');
             $table->integer('total_gas_price');
-            $table->enum('is_taken', ["true", "false"]);
+            $table->enum('is_taken', ["true", "false"])->default('false');
             $table->enum('owner', ['rental', 'owned']);
             $table->date('next_car_service');
             $table->timestamps();
