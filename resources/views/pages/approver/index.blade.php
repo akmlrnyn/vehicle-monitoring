@@ -9,7 +9,7 @@
                         <h1 class="text-gray-700 text-2xl sm:text-4xl font-bold">Welcome, <span
                                 class="text-xl sm:text-3xl">{{ Auth::user()->name }} !</span></h1>
                         <p class="text-sm sm:text-base text-gray-700">
-                            Welcome to Vehicle Rental Dashboard for admin
+                            Welcome to Vehicle Rental Dashboard
                         </p>
                     </div>
                     <div>
