@@ -4,6 +4,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\OfficeController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\StaffController;
+use App\Http\Controllers\UserStaffController;
 use App\Http\Controllers\VehicleController;
 use App\Models\Office;
 use Illuminate\Support\Facades\Route;
@@ -28,13 +29,18 @@ Route::get('/register', function () {
     return view('auth.register', compact('datas'));
 });
 
+Route::get('/staff-user', [UserStaffController::class, 'index'])->name('staff-user.index');
+Route::get('/staff-user/permission', [UserStaffController::class, 'show'])->name('staff-user.show');
+Route::get('/staff-user/permission/create', [UserStaffController::class, 'create'])->name('staff-user.create');
+Route::post('/staff-user', [UserStaffController::class, 'store'])->name('staff-user.store');
 
 
 
 
 
+// Admin - Approver only
 Route::middleware([
-    'auth:sanctum',
+    'auth:sanctum', 'is_admin',
     config('jetstream.auth_session'),
     'verified',
 ])->group(function () {
