@@ -29,10 +29,14 @@ Route::get('/register', function () {
     return view('auth.register', compact('datas'));
 });
 
+Route::middleware([
+    'is_staff'
+])->group( function() {
 Route::get('/staff-user', [UserStaffController::class, 'index'])->name('staff-user.index');
 Route::get('/staff-user/permission', [UserStaffController::class, 'show'])->name('staff-user.show');
 Route::get('/staff-user/permission/create', [UserStaffController::class, 'create'])->name('staff-user.create');
 Route::post('/staff-user', [UserStaffController::class, 'store'])->name('staff-user.store');
+});
 
 
 
