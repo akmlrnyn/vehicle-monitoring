@@ -52,6 +52,9 @@ Route::get('/vehicle/create', [VehicleController::class, 'create'])->name('vehic
 Route::get('/vehicle/{id}', [VehicleController::class, 'show'])->name('vehicle.show');
 Route::post('/vehicle', [VehicleController::class, 'store'])->name('vehicle.store');
 
+// Exports
+Route::get('dashboard/export', [DashboardController::class, 'export'])->name('dashboard.export');
+
 
 
 Route::middleware([
