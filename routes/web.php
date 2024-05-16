@@ -72,6 +72,8 @@ Route::middleware([
     // Vehicles
     Route::get('/vehicle', [VehicleController::class, 'index'])->name('vehicle.index');
     Route::get('/vehicle/create', [VehicleController::class, 'create'])->name('vehicle.create');
+    Route::get('/vehicle/{id}/edit', [VehicleController::class, 'edit'])->name('vehicle.edit');
+    Route::patch('/vehicle/{id}/update', [VehicleController::class, 'update'])->name('vehicle.update');
     Route::get('/vehicle/{id}', [VehicleController::class, 'show'])->name('vehicle.show');
     Route::post('/vehicle', [VehicleController::class, 'store'])->name('vehicle.store');
 

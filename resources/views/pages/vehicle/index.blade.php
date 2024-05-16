@@ -37,6 +37,13 @@
                                             See Detail
                                         </button>
                                     </a>
+
+                                    <a href="{{ route('vehicle.edit', $data->id) }}">
+                                        <button type="button"
+                                            class="text-white bg-yellow-600 hover:bg-yellow-800 focus:ring-4 focus:ring-yellow-300 sm:font-medium shadow-lg rounded-md sm:rounded-lg text-xs px-3 sm:px-5 py-2 sm:py-2.5 sm:me-2 dark:bg-yellow-500 dark:hover:bg-yellow-600 focus:outline-none dark:focus:ring-yellow-800">
+                                            Edit monthly data
+                                        </button>
+                                    </a>
                                 </div>
                             </div>
                         </div>

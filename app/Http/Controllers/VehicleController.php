@@ -38,4 +38,26 @@ class VehicleController extends Controller
 
         return redirect('/vehicle');
     }
+
+    public function edit($id) {
+        $vehicle = Vehicle::find($id);
+        $datas = Office::all();
+
+
+        return view('pages.vehicle.edit-vehicle', compact('vehicle', 'datas'));
+    }
+
+    public function update(Request $request, $id) {
+        $vehicle = Vehicle::find($id);
+        $oldGasPrice = $vehicle->total_gas_price;
+        $data = $request->all();
+        $gasPrice = $request['gas_consumption'] * 10000;
+        $data['total_gas_price'] = $gasPrice + $oldGasPrice;
+        $data['gas_consumption'] = $vehicle->gas_consumption + $request['gas_consumption'];
+
+
+        $vehicle->update($data);
+
+        return redirect('/vehicle');
+    }
 }

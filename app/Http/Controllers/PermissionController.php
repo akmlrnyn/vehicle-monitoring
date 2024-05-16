@@ -80,4 +80,13 @@ class PermissionController extends Controller
 
         return redirect('/permission');
     }
+
+    public function stopPermission($id) {
+        $carPermission = Permission::find($id);
+        $carPermission->vehicle->update([
+            'is_taken' => 'false',
+        ]);
+
+        return redirect('/permission');
+    }
 }
