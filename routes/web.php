@@ -55,6 +55,7 @@ Route::middleware([
     Route::get('/permission/{id}', [PermissionController::class, 'show'])->name('permission.show');
     Route::get('/permission', [PermissionController::class, 'index'])->name('permission.index');
     Route::patch('/permission/approve/{id}', [PermissionController::class, 'approve'])->name('permission.approve');
+    Route::patch('/permission/final-approval/{id}', [PermissionController::class, 'finalApproval'])->name('permission.final-approve');
     Route::patch('/permission/reject/{id}', [PermissionController::class, 'reject'])->name('permission.reject');
     Route::post('/permission', [PermissionController::class, 'store'])->name('permission.store');
 

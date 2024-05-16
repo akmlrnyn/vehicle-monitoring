@@ -30,7 +30,7 @@
                     @elseif ($data->status == 'rejected')
                     <span class="text-gray-500 text-xs text-red-500">{{$data->status}}</span>
 
-                    @elseif ($data->status == 'approved')
+                    @elseif ($data->status == 'admin-approved')
                     <span class="text-gray-500 text-xs text-green-500">{{$data->status}}</span>
 
                     @endif
