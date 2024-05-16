@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('permissions', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
-            $table->string('status')->enum('pending', 'accepted')->default('pending');
+            $table->enum('status', ['rejected', 'pending', 'admin-approved', 'accepted'])->default('pending');
             $table->string('reason');
             $table->enum('month', ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']);
             $table->timestamps();

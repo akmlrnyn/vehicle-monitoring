@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('permission_id');
             $table->unsignedBigInteger('vehicle_id');
-            $table->enum('status', ['pending', 'approved', 'rejected']);
+            $table->enum('status', ['pending', 'admin-approved', 'accepted']);
             $table->timestamps();
 
             $table->foreign('permission_id')->references('id')->on('permissions')->onDelete('cascade');
