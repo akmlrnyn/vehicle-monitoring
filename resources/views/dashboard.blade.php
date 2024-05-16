@@ -167,45 +167,17 @@
                                     @endforeach
                                 </div>
                                 <hr />
-                                <a href="" class="text-sm sm:text-base text-blue-700 p-1 text-center">
+                                <a href="{{ route('permission.index') }}" class="text-sm sm:text-base text-blue-700 p-1 text-center">
                                     <p>See all permissions ></p>
                                 </a>
                             </div>
                         </div>
                         {{-- Permission section --}}
                         <div class="card w-full bg-white p-4 rounded-lg border-b-1 shadow-md">
-                            <h2 class="text-base sm:text-xl font-semibold mb-1">
-                                Staff's Permits
-                            </h2>
-                            <h5 class="text-sm sm:text-base text-gray-600 font-light">Pending Permission()</h5>
-                            <div class="mt-2">
-                                <ul role="list" class="divide-y divide-gray-100">
-                                    <li class="flex flex-col sm:flex-row justify-between gap-x-6 py-5">
-                                        <div class="flex min-w-0 gap-x-4">
-                                            <img class="h-12 w-12 flex-none rounded-full bg-gray-50" src="" alt="" />
-                                            <div class="min-w-0 flex-auto">
-                                                <p class="text-sm font-semibold leading-6 text-gray-900">
+                        {!! $chart->container() !!}
 
-                                                </p>
-                                                <p class="mt-1 truncate text-xs leading-5 text-gray-500">
-
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="md:flex md:flex-col md:items-end mt-1 sm:mt-0">
-                                            <div class="mt-1 flex items-center gap-x-1.5">
-                                                <div class="flex-none rounded-full bg-yellow-500/20 p-1">
-                                                    <div class="h-1.5 w-1.5 rounded-full bg-yellow-500"></div>
-                                                </div>
-                                                <p class="text-xs leading-5 text-gray-500"></p>
-                                            </div>
-                                        </div>
-                                    </li>
-
-                                </ul>
-                                <hr />
-                                <a href="{{ route('permission.index') }}" class="text-sm sm:text-base text-violet-700 p-1 text-center">
-                                    <p>See all permissions ></p>
+                                <a href="{{ route('dashboard.export') }}" class="text-sm sm:text-base text-violet-700 p-1 text-center">
+                                    <p><i class="fa-solid fa-file-arrow-down"></i> Download in Excel</p>
                                 </a>
                             </div>
                         </div>
@@ -215,4 +187,9 @@
         </div>
     </div>
 
+    <script src="{{ $chart->cdn() }}"></script>
+
+{{ $chart->script() }}
+
 </x-app-layout>
+
