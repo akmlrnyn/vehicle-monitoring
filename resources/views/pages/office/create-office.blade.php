@@ -9,13 +9,13 @@
                 @csrf
                 <div class="relative z-0 w-full mb-2">
                     <label class="text-gray-500 text-xs sm:text-sm" for="name">Office name</label>
-                    <input id="name" name="name"
+                    <input id="name" required name="name"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 mt-1">
                     </input>
                 </div>
                 <div class="relative z-0 w-full mb-5">
                     <label class="text-gray-500 text-xs sm:text-sm" for="office_grade">Office grade</label>
-                    <select id="office_grade" type="text" name="office_grade" value=""
+                    <select id="office_grade" type="text" required name="office_grade" value=""
                         class="pb-2 block text-sm sm:text-base w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-blue border-gray-200">
                         <option value="main">Main Office</option>
                         <option value="branch">Branch Office</option>

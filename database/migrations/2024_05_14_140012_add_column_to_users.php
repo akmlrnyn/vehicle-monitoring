@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->unsignedBigInteger('office_id');
-            $table->enum('role', ['admin', 'approver'])->after('password')->default('approver');
+            $table->enum('role', ['admin', 'approver', 'staff'])->after('password')->default('staff');
 
             $table->foreign('office_id')->references('id')->on('offices')->onDelete('cascade');
         });

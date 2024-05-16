@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Charts\VehicleUsageChart;
 use App\Exports\UsageExport;
 use App\Models\Permission;
+use App\Models\PermissionHistory;
 use App\Models\User;
 use App\Models\Vehicle;
 use Carbon\Carbon;
@@ -18,6 +19,7 @@ class DashboardController extends Controller
 {
     public function index(VehicleUsageChart $chart) {
         $vehicles = Vehicle::where('is_taken', 'false')->get();
+        $history = PermissionHistory::all();
         $allVehicles = Vehicle::all();
         $monthlyCounts = Vehicle::select(
             DB::raw('MONTH(created_at) as month'),
@@ -28,7 +30,7 @@ class DashboardController extends Controller
         $pendingPermissions = Permission::where('status', 'pending')->get();
         $currentOffice = Auth::user()->office->name;
 
-        return view('dashboard', compact('vehicles', 'currentOffice', 'pendingPermissions', 'allVehicles', 'monthlyCounts'), ['chart' => $chart->build()]);
+        return view('dashboard', compact('vehicles', 'currentOffice', 'pendingPermissions', 'allVehicles', 'monthlyCounts', 'history'), ['chart' => $chart->build()]);
     }
 
     public function export() {

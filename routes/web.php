@@ -28,32 +28,7 @@ Route::get('/register', function () {
 });
 
 
-// Permission
-Route::get('/permission/create', [PermissionController::class, 'create'])->name('permission.create');
-Route::get('/permission/{id}', [PermissionController::class, 'show'])->name('permission.show');
-Route::get('/permission', [PermissionController::class, 'index'])->name('permission.index');
-Route::patch('/permission/approve/{id}', [PermissionController::class, 'approve'])->name('permission.approve');
-Route::patch('/permission/reject/{id}', [PermissionController::class, 'reject'])->name('permission.reject');
-Route::post('/permission', [PermissionController::class, 'store'])->name('permission.store');
 
-
-// Office
-Route::get('/office', [OfficeController::class, 'index'])->name('office.index');
-Route::get('/office/create', [OfficeController::class, 'create'])->name('office.create');
-Route::get('/office/{id}', [OfficeController::class, 'show'])->name('office.show');
-Route::get('/office/{id}/edit', [OfficeController::class, 'edit'])->name('office.edit');
-Route::patch('/office/{id}/update', [OfficeController::class, 'update'])->name('office.update');
-Route::post('/office', [OfficeController::class, 'store'])->name('office.store');
-
-
-// Vehicles
-Route::get('/vehicle', [VehicleController::class, 'index'])->name('vehicle.index');
-Route::get('/vehicle/create', [VehicleController::class, 'create'])->name('vehicle.create');
-Route::get('/vehicle/{id}', [VehicleController::class, 'show'])->name('vehicle.show');
-Route::post('/vehicle', [VehicleController::class, 'store'])->name('vehicle.store');
-
-// Exports
-Route::get('dashboard/export', [DashboardController::class, 'export'])->name('dashboard.export');
 
 
 
@@ -63,4 +38,31 @@ Route::middleware([
     'verified',
 ])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
+    // Permission
+    Route::get('/permission/create', [PermissionController::class, 'create'])->name('permission.create');
+    Route::get('/permission/{id}', [PermissionController::class, 'show'])->name('permission.show');
+    Route::get('/permission', [PermissionController::class, 'index'])->name('permission.index');
+    Route::patch('/permission/approve/{id}', [PermissionController::class, 'approve'])->name('permission.approve');
+    Route::patch('/permission/reject/{id}', [PermissionController::class, 'reject'])->name('permission.reject');
+    Route::post('/permission', [PermissionController::class, 'store'])->name('permission.store');
+
+
+    // Office
+    Route::get('/office', [OfficeController::class, 'index'])->name('office.index');
+    Route::get('/office/create', [OfficeController::class, 'create'])->name('office.create');
+    Route::get('/office/{id}', [OfficeController::class, 'show'])->name('office.show');
+    Route::get('/office/{id}/edit', [OfficeController::class, 'edit'])->name('office.edit');
+    Route::patch('/office/{id}/update', [OfficeController::class, 'update'])->name('office.update');
+    Route::post('/office', [OfficeController::class, 'store'])->name('office.store');
+
+
+    // Vehicles
+    Route::get('/vehicle', [VehicleController::class, 'index'])->name('vehicle.index');
+    Route::get('/vehicle/create', [VehicleController::class, 'create'])->name('vehicle.create');
+    Route::get('/vehicle/{id}', [VehicleController::class, 'show'])->name('vehicle.show');
+    Route::post('/vehicle', [VehicleController::class, 'store'])->name('vehicle.store');
+
+    // Exports
+    Route::get('dashboard/export', [DashboardController::class, 'export'])->name('dashboard.export');
 });

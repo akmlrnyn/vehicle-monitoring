@@ -42,10 +42,16 @@ class PermissionController extends Controller
             'status' => 'approved'
         ]);
 
-        $vehicleIsTaken = Vehicle::find($id);
+        $vehicleIsTaken = Vehicle::find($carPermission->vehicle_id);
         $vehicleIsTaken->update([
             'is_taken' => 'true'
         ]);
+
+        $carPermission->history()->create([
+            'status' => 'approved',
+            'vehicle_id' => $carPermission->vehicle_id,
+        ]);
+
 
         return redirect('/permission');
     }
@@ -54,6 +60,9 @@ class PermissionController extends Controller
         $carPermission = Permission::find($id);
         $carPermission->update([
             'status' => 'rejected'
+        ]);
+        $carPermission->history()->create([
+            'status' => 'rejected',
         ]);
 
         return redirect('/permission');

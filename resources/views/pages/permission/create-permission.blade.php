@@ -9,7 +9,7 @@
                 @csrf
                 <div class="relative z-0 w-full mb-2">
                     <label class="text-gray-500 text-xs sm:text-sm" for="name">Staff name</label>
-                    <select id="name" name="user_id"
+                    <select id="name" required name="user_id"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 mt-1">
                         <option disabled>
                             <-------->
@@ -29,12 +29,12 @@
                 </div>
                 <div class="relative z-0 w-full mb-5">
                     <label class="text-gray-500 text-xs sm:text-sm" for="reason">Reason</label>
-                    <input id="reason" type="text" name="reason" value=""
+                    <input id="reason" type="text" required name="reason" value=""
                         class="pb-2 block text-sm sm:text-base w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-blue border-gray-200" />
                 </div>
                 <div class="relative z-0 w-full mb-5">
                     <label class="text-gray-500 text-xs sm:text-sm" for="month">Choose Month</label>
-                    <select id="month" name="month"
+                    <select id="month" required name="month"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 mt-1">
                         <option disabled>
                             <--------->
@@ -57,7 +57,7 @@
 
                 <div class="relative z-0 w-full mb-5">
                     <label class="text-gray-500 text-xs sm:text-sm" for="leave_request">Choose car</label>
-                    <select id="vehicle" name="vehicle_id"
+                    <select id="vehicle" required name="vehicle_id"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 mt-1">
                         <option disabled>
                             <-------->
